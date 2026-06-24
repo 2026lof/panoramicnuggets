@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panoramic Nuggets | Marketing, Podcasting & Social Media Strategy</title>
+  <meta name="description" content="Panoramic Nuggets helps businesses transform knowledge into action through podcasting, social media marketing, content creation, and strategy." />
+  <link rel="icon" type="image/png" href="./panoramic-nuggets-logo.png" />
+  <style>
+    :root{
+      --navy:#071a2d;
+      --navy2:#0b2742;
+      --gold:#ffc957;
+      --gold2:#f0a91f;
+      --white:#ffffff;
+      --muted:#647386;
+      --ink:#071421;
+      --line:rgba(7,26,45,.12);
+      --shadow:0 22px 60px rgba(7,26,45,.14);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:#fbfdff;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,92%);margin:auto}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#0b1f34;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{
+      height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:230px;
+    }
+    .brand img{
+      width:46px;
+      height:46px;
+      object-fit:contain;
+      display:block;
+    }
+    .brand-text{
+      color:white;
+      font-size:18px;
+      font-weight:950;
+      line-height:1;
+      letter-spacing:.04em;
+    }
+    .brand-text span{
+      display:block;
+      color:var(--gold);
+      font-size:11px;
+      letter-spacing:.3em;
+      margin-top:6px;
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+    nav a{
+      color:rgba(255,255,255,.82);
+      font-size:13px;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+    .nav-cta{
+      background:linear-gradient(135deg,var(--gold),#ffdc84);
+      color:#071421!important;
+      padding:13px 22px;
+      border-radius:999px;
+      box-shadow:0 12px 28px rgba(255,201,87,.22);
+      white-space:nowrap;
+    }
+
+    .hero{
+      background:
+        radial-gradient(circle at 72% 38%,rgba(255,201,87,.2),transparent 26%),
+        linear-gradient(135deg,#071a2d 0%,#09243d 55%,#06111f 100%);
+      color:white;
+      padding:86px 0 72px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:58px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 15px;
+      border-radius:999px;
+      border:1px solid rgba(255,201,87,.38);
+      background:rgba(255,201,87,.1);
+      color:#ffe2a4;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      margin-bottom:22px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+    .hero h1{
+      font-size:clamp(48px,5.3vw,74px);
+      line-height:1;
+      letter-spacing:-.055em;
+      max-width:680px;
+      margin-bottom:22px;
+    }
+    .hero h1 span{color:var(--gold)}
+    .hero p{
+      color:#dbe8f4;
+      font-size:19px;
+      max-width:620px;
+      margin-bottom:30px;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:28px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:900;
+      border:1px solid transparent;
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--gold),#ffdc84);color:#071421}
+    .btn-secondary{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:white}
+    .mini-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      max-width:620px;
+    }
+    .mini-stat{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.07);
+      border-radius:16px;
+      padding:13px 14px;
+    }
+    .mini-stat b{display:block;color:var(--gold);font-size:21px}
+    .mini-stat small{color:#d7e4ef;font-weight:750}
+
+    .hero-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:30px;
+      padding:24px;
+      box-shadow:0 26px 70px rgba(0,0,0,.28);
+    }
+    .show-card{
+      min-height:390px;
+      border-radius:24px;
+      background:linear-gradient(145deg,#0f3152,#06111f);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+    .show-card:before{
+      content:"";
+      position:absolute;
+      right:-90px;
+      top:-90px;
+      width:250px;
+      height:250px;
+      border-radius:50%;
+      background:rgba(255,201,87,.18);
+    }
+    .show-top{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      position:relative;
+      z-index:2;
+    }
+    .show-top img{
+      width:86px;
+      height:86px;
+      object-fit:contain;
+      flex:0 0 auto;
+    }
+    .show-top h3{
+      font-size:28px;
+      line-height:1.05;
+    }
+    .show-top span{color:var(--gold)}
+    .mock-lines{
+      display:grid;
+      gap:12px;
+      margin:35px 0;
+      position:relative;
+      z-index:2;
+    }
+    .line{
+      height:12px;
+      background:rgba(255,255,255,.13);
+      border-radius:999px;
+    }
+    .line:nth-child(1){width:92%}
+    .line:nth-child(2){width:72%}
+    .line:nth-child(3){width:84%}
+    .audio-bars{
+      display:flex;
+      align-items:end;
+      gap:7px;
+      height:80px;
+      position:relative;
+      z-index:2;
+    }
+    .bar{
+      width:12px;
+      border-radius:999px;
+      background:linear-gradient(var(--gold),#ffe2a4);
+    }
+    .bar:nth-child(1){height:28px}.bar:nth-child(2){height:50px}.bar:nth-child(3){height:68px}.bar:nth-child(4){height:42px}.bar:nth-child(5){height:74px}.bar:nth-child(6){height:36px}.bar:nth-child(7){height:58px}.bar:nth-child(8){height:44px}
+    .show-bottom{
+      position:relative;
+      z-index:2;
+      background:rgba(2,7,13,.58);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      padding:20px;
+    }
+    .show-bottom h4{font-size:24px;line-height:1.1}
+    .show-bottom span{color:var(--gold)}
+
+    section{padding:84px 0}
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:30px;
+      margin-bottom:36px;
+    }
+    .section-head h2{
+      font-size:clamp(34px,4vw,52px);
+      line-height:1;
+      letter-spacing:-.04em;
+      max-width:720px;
+    }
+    .section-head p{
+      color:var(--muted);
+      font-size:17px;
+      max-width:470px;
+    }
+    .eyebrow.dark{
+      color:var(--navy);
+      background:#fff4d8;
+      border-color:#eed083;
+      margin-bottom:14px;
+    }
+
+    .services,.pricing-grid,.case-grid,.episodes,.testimonial-grid{
+      display:grid;
+      gap:18px;
+    }
+    .services{grid-template-columns:repeat(4,1fr)}
+    .service,.price-card,.case-card,.episode{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 12px 34px rgba(7,26,45,.06);
+    }
+    .icon{
+      width:52px;height:52px;border-radius:17px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--navy),#123b63);
+      color:var(--gold);
+      font-size:24px;
+      margin-bottom:18px;
+    }
+    .service h3{font-size:20px;margin-bottom:8px}
+    .service p,.case-card p,.episode p{color:var(--muted)}
+
+    .about,.testimonials{
+      background:linear-gradient(135deg,#071a2d,#0c2b48);
+      color:white;
+    }
+    .about-grid,.podcast-grid,.contact-grid{
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      gap:42px;
+      align-items:center;
+    }
+    .about h2{font-size:46px;line-height:1;letter-spacing:-.04em;margin:14px 0}
+    .about p{color:#dbe8f4;font-size:18px}
+    .features{display:grid;gap:14px}
+    .feature{
+      display:flex;
+      gap:16px;
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .check{
+      width:32px;height:32px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--gold);
+      color:#071421;
+      font-weight:950;
+      flex:0 0 auto;
+    }
+
+    .pricing{background:white}
+    .pricing-grid{grid-template-columns:repeat(4,1fr)}
+    .price-card{display:flex;flex-direction:column;position:relative}
+    .price-card.featured{border:2px solid var(--gold);box-shadow:0 24px 60px rgba(255,201,87,.18)}
+    .badge{
+      position:absolute;
+      top:18px;right:18px;
+      background:#fff2ce;
+      color:#805600;
+      border-radius:999px;
+      padding:5px 10px;
+      font-size:11px;
+      font-weight:900;
+    }
+    .price-card h3{font-size:21px;line-height:1.2;padding-right:70px}
+    .price{font-size:42px;font-weight:950;color:var(--navy);margin:12px 0}
+    .price small{font-size:15px;color:var(--muted)}
+    .price-card ul{list-style:none;display:grid;gap:9px;margin:14px 0 24px}
+    .price-card li{font-size:14px;color:#435468;display:flex;gap:10px}
+    .price-card li:before{content:"✓";color:var(--gold2);font-weight:950}
+    .price-card .btn{margin-top:auto;width:100%;padding:13px 15px}
+    .btn-dark{background:var(--navy);color:white}
+    .note{
+      margin-top:22px;
+      background:#f7f9fc;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      color:#536475;
+    }
+    .note b{color:var(--navy)}
+
+    .podcast{background:#f5f9fd}
+    .pod-card,.timeline{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .pod-card{background:linear-gradient(135deg,#071a2d,#0e3356);color:white}
+    .pod-card h3{font-size:34px;line-height:1.05;margin:12px 0}
+    .pod-card p{color:#dbe8f4}
+    .step{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+    .step:last-child{border-bottom:0}
+    .num{width:42px;height:42px;border-radius:14px;background:#fff1cc;color:#805600;display:grid;place-items:center;font-weight:950}
+    .step p{color:var(--muted)}
+
+    .case-grid,.episodes,.testimonial-grid{grid-template-columns:repeat(3,1fr)}
+    .metric{font-size:42px;font-weight:950;color:var(--gold2)}
+    .episode .tag{
+      display:inline-block;background:#fff1cc;color:#805600;border-radius:999px;
+      padding:6px 10px;font-size:11px;font-weight:900;margin-bottom:12px;
+    }
+    .episode h3,.case-card h3{font-size:21px;line-height:1.2;margin:8px 0}
+    .quote{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:24px;
+      padding:26px;
+    }
+    .quote p{color:#dbe8f4}
+    .quote b{display:block;margin-top:18px;color:var(--gold)}
+
+    .contact-section{background:#fbfdff}
+    .contact-panel,.lead-form{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .contact-panel p{color:var(--muted);margin:12px 0}
+    .contact-panel a{color:var(--gold2);font-weight:900}
+    .calendly-box{
+      margin-top:22px;
+      border:1px dashed rgba(7,26,45,.25);
+      border-radius:20px;
+      padding:20px;
+      background:#fff8e8;
+    }
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    input,select,textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px 15px;
+      margin-bottom:14px;
+      font:inherit;
+      background:#f8fafc;
+    }
+    textarea{min-height:130px;resize:vertical}
+    .lead-form button{width:100%;cursor:pointer}
+    .form-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+    footer{
+      background:#02070d;
+      color:#aebbc7;
+      padding:34px 0;
+    }
+    .foot{display:flex;justify-content:space-between;gap:22px;align-items:center}
+    .footer-logo{width:120px;height:auto;display:block;margin-bottom:8px}
+    .social{display:flex;gap:12px}
+    .social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:white}
+
+    @media(max-width:1080px){
+      nav ul{display:none}
+      .hero-grid,.about-grid,.podcast-grid,.contact-grid{grid-template-columns:1fr}
+      .services,.pricing-grid,.case-grid,.episodes,.testimonial-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:660px){
+      .nav{height:70px}
+      .brand img{width:40px;height:40px}
+      .brand-text{font-size:15px}
+      .brand-text span{font-size:9px}
+      .hero{padding:54px 0 60px}
+      .hero h1{font-size:44px}
+      .mini-stats,.services,.pricing-grid,.case-grid,.episodes,.testimonial-grid,.form-row{grid-template-columns:1fr}
+      .section-head,.foot{display:block}
+      .section-head p{margin-top:14px}
+      .social{margin-top:18px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">
+        <div class="brand-text">PANORAMIC <span>NUGGETS</span></div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#podcast">Podcast</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a class="nav-cta" href="#contact">Book a Free Strategy Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Podcasting • Marketing • Strategy</div>
+          <h1>Transforming <span>Knowledge</span><br>Into Action.</h1>
+          <p>Premium podcast, social media, and digital marketing support for companies that want to be seen, heard, trusted, and remembered.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Book a Free Strategy Call →</a>
+            <a class="btn btn-secondary" href="#pricing">View Pricing</a>
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat"><b>360°</b><small>Brand Strategy</small></div>
+            <div class="mini-stat"><b>4</b><small>Monthly Plans</small></div>
+            <div class="mini-stat"><b>Action</b><small>Focused Content</small></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="show-card">
+            <div class="show-top">
+              <img src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">
+              <h3>Marketing insights that become <span>real action.</span></h3>
+            </div>
+            <div class="mock-lines">
+              <div class="line"></div><div class="line"></div><div class="line"></div>
+            </div>
+            <div class="audio-bars">
+              <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+            <div class="show-bottom">
+              <h4>Podcasting. <span>Social Media.</span> Strategy.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow dark"><span class="dot"></span> What We Do</div>
+            <h2>Premium marketing support built for modern businesses.</h2>
+          </div>
+          <p>From content planning to community management, we turn your ideas into consistent, professional digital communication.</p>
+        </div>
+        <div class="services">
+          <div class="service"><div class="icon">🎙️</div><h3>Podcast Positioning</h3><p>Conversation ideas, guest strategy, show positioning, and content that builds authority.</p></div>
+          <div class="service"><div class="icon">📱</div><h3>Social Media Marketing</h3><p>Instagram and Facebook content planning, captions, hashtags, stories, and engagement support.</p></div>
+          <div class="service"><div class="icon">🧭</div><h3>Growth Strategy</h3><p>Clear monthly direction, boosted post setup, audience growth ideas, and reporting.</p></div>
+          <div class="service"><div class="icon">✍️</div><h3>Content Support</h3><p>Website content updates, review management, response drafting, and minor creative updates.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> About Panoramic Nuggets</div>
+          <h2>Knowledge is powerful. Action makes it valuable.</h2>
+          <p>Panoramic Nuggets is a marketing and podcast brand created to help companies communicate clearly, show up consistently, and grow their audience with practical strategies.</p>
+        </div>
+        <div class="features">
+          <div class="feature"><div class="check">✓</div><div><h3>Consistent Brand Presence</h3><p>Professional posts, captions, stories, and content rhythm.</p></div></div>
+          <div class="feature"><div class="check">✓</div><div><h3>Community Management</h3><p>Comment and DM monitoring options from lite support to daily handling.</p></div></div>
+          <div class="feature"><div class="check">✓</div><div><h3>Insightful Reporting</h3><p>Monthly reports that show what worked, what improved, and what to do next.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow dark"><span class="dot"></span> Pricing</div>
+            <h2>Social media handling plans for every stage.</h2>
+          </div>
+          <p>Simple monthly plans designed for businesses that want consistent content, better visibility, and professional digital management.</p>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Starter Digital Presence</h3>
+            <div class="price">$100 <small>/mo</small></div>
+            <ul><li>4–5 social media posts per month</li><li>Instagram and Facebook support</li><li>Short-form caption writing</li><li>Lite comment/DM monitoring twice a week</li><li>Basic monthly report</li></ul>
+            <a class="btn btn-dark" href="#contact">Start Here</a>
+          </div>
+          <div class="price-card">
+            <h3>Basic Digital Presence</h3>
+            <div class="price">$200 <small>/mo</small></div>
+            <ul><li>6–8 social media posts per month</li><li>Social media caption writing</li><li>Website content support</li><li>Google review management</li><li>Lite comment/DM monitoring</li><li>Basic engagement report</li></ul>
+            <a class="btn btn-dark" href="#contact">Choose Basic</a>
+          </div>
+          <div class="price-card featured">
+            <div class="badge">Popular</div>
+            <h3>Premium Digital Presence</h3>
+            <div class="price">$300 <small>/mo</small></div>
+            <ul><li>10–12 social media posts per month</li><li>Caption writing and hashtag research</li><li>Website content and minor graphics</li><li>Google review response drafting</li><li>Daily comment/DM monitoring</li><li>Monthly insights report</li><li>2–3 Instagram stories weekly</li><li>One boosted post setup</li></ul>
+            <a class="btn btn-primary" href="#contact">Go Premium</a>
+          </div>
+          <div class="price-card">
+            <div class="badge">Video</div>
+            <h3>Enhanced Content + Video</h3>
+            <div class="price">$500 <small>/mo</small></div>
+            <ul><li>8 posts and 6 video edits</li><li>Client provides footage</li><li>Caption writing and hashtags</li><li>Website content support</li><li>Google review management</li><li>Daily comment/DM monitoring</li><li>3–4 Instagram stories weekly</li><li>One boosted post setup</li></ul>
+            <a class="btn btn-dark" href="#contact">Add Video</a>
+          </div>
+        </div>
+        <div class="note"><b>Reel and video edits available:</b> The Enhanced Content + Video Plan includes editing support when footage is provided by the client.</div>
+      </div>
+    </section>
+
+    <section class="podcast" id="podcast">
+      <div class="container podcast-grid">
+        <div class="pod-card">
+          <div class="eyebrow"><span class="dot"></span> The Podcast</div>
+          <h3>Ideas worth hearing. Nuggets worth acting on.</h3>
+          <p>Feature entrepreneurs, experts, creators, and business leaders in conversations designed to turn knowledge into practical next steps.</p>
+        </div>
+        <div class="timeline">
+          <div class="step"><div class="num">01</div><div><h4>Discover</h4><p>Understand your brand, audience, goals, and content opportunities.</p></div></div>
+          <div class="step"><div class="num">02</div><div><h4>Create</h4><p>Build posts, captions, graphics, stories, and podcast content ideas.</p></div></div>
+          <div class="step"><div class="num">03</div><div><h4>Engage</h4><p>Monitor comments, DMs, reviews, and audience response.</p></div></div>
+          <div class="step"><div class="num">04</div><div><h4>Improve</h4><p>Review monthly insights and recommend next actions for growth.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="results">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow dark"><span class="dot"></span> Case Studies</div><h2>Built to turn content into measurable business momentum.</h2></div><p>Sample result areas we focus on for clients: consistency, visibility, engagement, and lead flow.</p></div>
+        <div class="case-grid">
+          <div class="case-card"><div class="metric">30 Days</div><h3>Digital Presence Reset</h3><p>Improved posting rhythm, cleaner messaging, and stronger content structure.</p></div>
+          <div class="case-card"><div class="metric">3x</div><h3>Content Repurposing</h3><p>Turned one long-form conversation into posts, stories, short videos, and captions.</p></div>
+          <div class="case-card"><div class="metric">360°</div><h3>Brand Strategy View</h3><p>Aligned website content, reviews, social posts, and audience engagement.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="episodes">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow dark"><span class="dot"></span> Podcast Episodes</div><h2>Podcast topics that educate, inspire, and drive action.</h2></div><p>Use this section to showcase latest interviews, business insights, and practical marketing nuggets.</p></div>
+        <div class="episodes">
+          <div class="episode"><span class="tag">Episode 01</span><h3>How Local Businesses Can Build Trust Online</h3><p>A practical conversation on reviews, content consistency, and digital credibility.</p></div>
+          <div class="episode"><span class="tag">Episode 02</span><h3>Turning Expertise into Social Media Content</h3><p>How founders can convert everyday knowledge into useful posts and videos.</p></div>
+          <div class="episode"><span class="tag">Episode 03</span><h3>The Strategy Behind a Premium Brand Presence</h3><p>Why clear messaging, strong visuals, and consistent engagement matter.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow"><span class="dot"></span> Testimonials</div><h2>What clients can expect from Panoramic Nuggets.</h2></div><p>Replace these sample testimonials with real client feedback as your portfolio grows.</p></div>
+        <div class="testimonial-grid">
+          <div class="quote"><p>“Panoramic Nuggets helped us organize our ideas and turn them into consistent, professional content.”</p><b>Local Business Owner</b></div>
+          <div class="quote"><p>“The monthly plan made social media easier to manage and gave us a clearer brand voice.”</p><b>Healthcare Practice Manager</b></div>
+          <div class="quote"><p>“The podcast and content strategy helped position our expertise in a much stronger way.”</p><b>Professional Services Founder</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow dark"><span class="dot"></span> Contact</div><h2>Book a free strategy call and start building a stronger digital presence.</h2></div><p>Tell us what you need: social media handling, reels, podcast strategy, content planning, or a full monthly marketing plan.</p></div>
+        <div class="contact-grid">
+          <div class="contact-panel">
+            <h3>Contact Panoramic Nuggets</h3>
+            <p>Email us directly or use the lead form to send your project details.</p>
+            <p><strong>Email:</strong><br><a href="mailto:contact@panoramicnuggets.com">contact@panoramicnuggets.com</a></p>
+            <div class="calendly-box"><h3>Calendly Booking</h3><p>Add your Calendly link here so visitors can schedule a free strategy call.</p><a class="btn btn-dark" href="https://calendly.com/contact-panoramicnuggets/strategy-call" target="_blank" rel="noopener">Book a Free Strategy Call</a></div>
+          </div>
+          <form class="lead-form" name="project-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+          <input type="hidden" name="form-name" value="project-inquiry">
+          <p style="display:none;">
+            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+          </p>
+            <h3>Send a Project Inquiry</h3>
+            <div class="form-row"><input type="text" name="name" placeholder="Your Name" required><input type="email" name="email" placeholder="Your Email" required></div>
+            <div class="form-row"><input type="text" name="company" placeholder="Company Name"><select name="service_interest"><option>Social Media Handling</option><option>Podcast Strategy</option><option>Reel / Video Editing</option><option>Website Content Support</option><option>Full Marketing Strategy</option></select></div>
+            <textarea name="message" placeholder="Tell us about your business and what support you need"></textarea>
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            <div class="form-note">This form is powered by Netlify Forms. Submissions will appear in your Netlify dashboard, where you can enable email notifications to contact@panoramicnuggets.com.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div><img class="footer-logo" src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">© 2026 Panoramic Nuggets. Transforming Knowledge into Action.</div>
+      <div class="social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">ig</a></div>
+    </div>
+  </footer>
+</body>
+</html>
