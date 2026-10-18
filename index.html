@@ -438,6 +438,9 @@
     .footer-logo{width:120px;height:auto;display:block;margin-bottom:8px}
     .social{display:flex;gap:12px}
     .social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:white}
+    .legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:13px}
+    .legal-links a{color:#aebbc7}
+    .legal-links a:hover{color:var(--gold)}
 
     @media(max-width:1080px){
       nav ul{display:none}
@@ -668,7 +671,9 @@
 
   <footer>
     <div class="container foot">
-      <div><img class="footer-logo" src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">© 2026 Panoramic Nuggets. Transforming Knowledge into Action.</div>
+      <div><img class="footer-logo" src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">© 2026 Panoramic Nuggets. Transforming Knowledge into Action.
+        <div class="legal-links"><a href="./privacy.html">Privacy Policy</a><a href="./terms.html">Terms of Service</a><a href="./data-deletion.html">Data Deletion</a></div>
+      </div>
       <div class="social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">ig</a></div>
     </div>
   </footer>
