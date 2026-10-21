@@ -484,6 +484,11 @@
     .daily-empty{border:1px dashed rgba(255,201,87,.45);border-radius:20px;padding:26px;color:#dbe8f4;font-size:17px}
     .daily-empty b{color:var(--gold)}
     .follow{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .launch{display:grid;grid-template-columns:minmax(220px,320px) 1fr;gap:36px;align-items:center;margin-bottom:28px}
+    .launch video{width:100%;height:auto;aspect-ratio:9/16;border-radius:22px;background:#000;border:2px solid rgba(255,201,87,.5);box-shadow:0 26px 70px rgba(0,0,0,.35)}
+    .launch h3{font-size:clamp(28px,3.4vw,42px);line-height:1.05;letter-spacing:-.03em;margin-bottom:14px}
+    .launch p{color:#dbe8f4;font-size:18px;margin-bottom:10px;max-width:520px}
+    @media(max-width:660px){.launch{grid-template-columns:1fr}.launch video{max-width:300px;margin:auto}}
     .social a svg{width:18px;height:18px;fill:currentColor}
     .social a:hover{background:var(--gold);color:#071421}
     .wa-line{margin-top:16px}
@@ -539,6 +544,8 @@
           <div class="actions">
             <a class="btn btn-primary" href="#contact">Book a Free Strategy Call →</a>
             <a class="btn btn-secondary" href="#pricing">View Pricing</a>
+            <a class="btn btn-secondary" id="teaser-cta" href="#launch-teaser">▶ Watch the launch teaser</a>
+            <script>if (Date.now() >= Date.parse('2026-11-02T00:00:00-05:00')) document.getElementById('teaser-cta').remove();</script>
           </div>
           <div class="mini-stats">
             <div class="mini-stat"><b>360°</b><small>Brand Strategy</small></div>
@@ -676,6 +683,20 @@
           </div>
           <p>A short video every morning with one idea and one small action you can take before your coffee gets cold. Updated daily.</p>
         </div>
+        <!-- Launch teaser: shown until the Nov 1, 2026 launch, then hidden automatically (remove this block and media/ after). -->
+        <div class="launch" id="launch-teaser">
+          <video src="/media/launch-teaser.mp4" controls playsinline preload="metadata" width="1080" height="1920"></video>
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Launching November 1</div>
+            <h3>One nugget a day. Starting November 1.</h3>
+            <p>Not a resolution. A habit. Every morning, one short video on life, money or health, and one small action you can take before your coffee gets cold.</p>
+            <p>Follow now so day one finds you.</p>
+          </div>
+        </div>
+        <script>
+          // Hide the teaser once launch day is over (Nov 2, 2026, 00:00 US Eastern).
+          if (Date.now() >= Date.parse('2026-11-02T00:00:00-05:00')) document.getElementById('launch-teaser').remove();
+        </script>
         <!--LATEST:START-->
         <div class="daily-empty"><b>The first nugget drops November 1, 2026.</b> Follow along so day one finds you.</div>
         <!--LATEST:END-->
