@@ -59,6 +59,13 @@ if (list && list.length) {
 }
 fs.writeFileSync('index.html', html);
 
+// Podcast: republish the feed from the podcast repo's GitHub Pages as /podcast.xml (the URL given to Spotify/Apple).
+try {
+  const r = await fetch('https://panoramicnuggets.github.io/podcast/feed.xml', { signal: AbortSignal.timeout(15000) });
+  if (r.ok) { fs.writeFileSync('podcast.xml', await r.text()); console.log('Podcast feed copied to /podcast.xml'); }
+  else console.log(`Podcast feed not published yet (${r.status}).`);
+} catch (e) { console.warn('Podcast feed unavailable:', e.message); }
+
 const pages = [['/', '1.0', 'daily'], ['/privacy.html', '0.3', 'yearly'], ['/terms.html', '0.3', 'yearly'], ['/data-deletion.html', '0.2', 'yearly']];
 fs.writeFileSync('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
