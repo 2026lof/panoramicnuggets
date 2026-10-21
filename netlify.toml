@@ -1,2 +1,17 @@
 [build]
   publish = "."
+  # Pulls the latest daily nuggets from YouTube into index.html and writes sitemap.xml (never fails the build).
+  command = "node build/latest.mjs"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

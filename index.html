@@ -3,9 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Panoramic Nuggets | Marketing, Podcasting & Social Media Strategy</title>
-  <meta name="description" content="Panoramic Nuggets helps businesses transform knowledge into action through podcasting, social media marketing, content creation, and strategy." />
-  <link rel="icon" type="image/png" href="./panoramic-nuggets-logo.png" />
+  <title>Panoramic Nuggets | Podcast, Social Media Marketing &amp; Daily Life, Money, Health Nuggets</title>
+  <meta name="description" content="Panoramic Nuggets turns knowledge into action: social media marketing plans from $100/mo, podcast strategy, and a free daily video nugget on life, money and health." />
+  <link rel="canonical" href="https://panoramicnuggets.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0b1f34" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Panoramic Nuggets" />
+  <meta property="og:url" content="https://panoramicnuggets.com/" />
+  <meta property="og:title" content="Panoramic Nuggets: Transforming Knowledge into Action" />
+  <meta property="og:description" content="Social media marketing, podcast strategy, and a daily nugget on life, money and health." />
+  <meta property="og:image" content="https://panoramicnuggets.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Panoramic Nuggets logo: a sun rising over a mountain with a microphone" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Panoramic Nuggets: Transforming Knowledge into Action" />
+  <meta name="twitter:description" content="Social media marketing, podcast strategy, and a daily nugget on life, money and health." />
+  <meta name="twitter:image" content="https://panoramicnuggets.com/og-image.jpg" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://panoramicnuggets.com/#org","name":"Panoramic Nuggets","url":"https://panoramicnuggets.com/","logo":"https://panoramicnuggets.com/logo-240.png","slogan":"Transforming knowledge into action","email":"contact@panoramicnuggets.com",
+     "sameAs":["https://www.youtube.com/@panoramicnuggets","https://www.instagram.com/panoramicnuggets/","https://www.facebook.com/1381584035044746"],
+     "contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"contact@panoramicnuggets.com","telephone":"+1-914-454-1328","availableLanguage":["English","Hindi"]}},
+    {"@type":"WebSite","@id":"https://panoramicnuggets.com/#site","url":"https://panoramicnuggets.com/","name":"Panoramic Nuggets","publisher":{"@id":"https://panoramicnuggets.com/#org"}},
+    {"@type":"Service","name":"Social media management","provider":{"@id":"https://panoramicnuggets.com/#org"},"areaServed":"US",
+     "offers":[{"@type":"Offer","name":"Starter Digital Presence","price":"100","priceCurrency":"USD"},{"@type":"Offer","name":"Basic Digital Presence","price":"200","priceCurrency":"USD"},{"@type":"Offer","name":"Premium Digital Presence","price":"300","priceCurrency":"USD"},{"@type":"Offer","name":"Enhanced Content + Video","price":"500","priceCurrency":"USD"}]}
+  ]}
+  </script>
   <style>
     :root{
       --navy:#071a2d;
@@ -52,14 +79,15 @@
       min-width:230px;
     }
     .brand img{
-      width:46px;
-      height:46px;
+      width:58px;
+      height:58px;
       object-fit:contain;
       display:block;
+      filter:drop-shadow(0 4px 14px rgba(255,201,87,.35));
     }
     .brand-text{
       color:white;
-      font-size:18px;
+      font-size:21px;
       font-weight:950;
       line-height:1;
       letter-spacing:.04em;
@@ -442,14 +470,33 @@
     .legal-links a{color:#aebbc7}
     .legal-links a:hover{color:var(--gold)}
 
+    .episode .try{margin-top:12px;font-size:14px;color:#435468}
+    .episode .try b{color:var(--gold2)}
+    .episode .meta{margin-top:10px;font-size:12px;font-weight:800;color:#8a97a6;letter-spacing:.04em;text-transform:uppercase}
+    .daily{background:linear-gradient(135deg,#071a2d,#0c2b48);color:white}
+    .daily .section-head p{color:#dbe8f4}
+    .nuggets{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .nugget{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+    .nugget img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#0e3356}
+    .nugget-date{font-size:12px;color:var(--gold);font-weight:800;padding:10px 12px 0}
+    .nugget h3{font-size:15px;line-height:1.25;padding:4px 12px 14px}
+    .nugget:hover{border-color:var(--gold)}
+    .daily-empty{border:1px dashed rgba(255,201,87,.45);border-radius:20px;padding:26px;color:#dbe8f4;font-size:17px}
+    .daily-empty b{color:var(--gold)}
+    .follow{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .social a svg{width:18px;height:18px;fill:currentColor}
+    .social a:hover{background:var(--gold);color:#071421}
+    .wa-line{margin-top:16px}
     @media(max-width:1080px){
+      .nuggets{grid-template-columns:repeat(3,1fr)}
       nav ul{display:none}
       .hero-grid,.about-grid,.podcast-grid,.contact-grid{grid-template-columns:1fr}
       .services,.pricing-grid,.case-grid,.episodes,.testimonial-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:660px){
       .nav{height:70px}
-      .brand img{width:40px;height:40px}
+      .brand img{width:50px;height:50px}
+      .nuggets{grid-template-columns:repeat(2,1fr)}
       .brand-text{font-size:15px}
       .brand-text span{font-size:9px}
       .hero{padding:54px 0 60px}
@@ -464,18 +511,18 @@
 <body>
   <header>
     <div class="container nav">
-      <a class="brand" href="#home">
-        <img src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">
+      <a class="brand" href="/" aria-label="Panoramic Nuggets home">
+        <img src="/logo-mark.png" alt="Panoramic Nuggets logo" width="58" height="58">
         <div class="brand-text">PANORAMIC <span>NUGGETS</span></div>
       </a>
-      <nav>
+      <nav aria-label="Main">
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#podcast">Podcast</a></li>
+          <li><a href="#daily">Daily Nuggets</a></li>
+          <li><a href="#episodes">Podcast</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#results">Results</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
           <li><a class="nav-cta" href="#contact">Book a Free Strategy Call</a></li>
         </ul>
       </nav>
@@ -502,7 +549,7 @@
         <div class="hero-card">
           <div class="show-card">
             <div class="show-top">
-              <img src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">
+              <img src="/logo-mark.png" alt="" width="86" height="86">
               <h3>Marketing insights that become <span>real action.</span></h3>
             </div>
             <div class="mock-lines">
@@ -620,24 +667,47 @@
       </div>
     </section>
 
+    <section class="daily" id="daily">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Daily Nuggets</div>
+            <h2>One nugget a day on life, money and health.</h2>
+          </div>
+          <p>A short video every morning with one idea and one small action you can take before your coffee gets cold. Updated daily.</p>
+        </div>
+        <!--LATEST:START-->
+        <div class="daily-empty"><b>The first nugget drops November 1, 2026.</b> Follow along so day one finds you.</div>
+        <!--LATEST:END-->
+        <div class="follow">
+          <a class="btn btn-primary" href="https://www.youtube.com/@panoramicnuggets" target="_blank" rel="noopener">Watch on YouTube</a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/panoramicnuggets/" target="_blank" rel="noopener">Follow on Instagram</a>
+          <a class="btn btn-secondary" href="https://www.facebook.com/1381584035044746" target="_blank" rel="noopener">Follow on Facebook</a>
+        </div>
+      </div>
+    </section>
+
     <section id="episodes">
       <div class="container">
-        <div class="section-head"><div><div class="eyebrow dark"><span class="dot"></span> Podcast Episodes</div><h2>Podcast topics that educate, inspire, and drive action.</h2></div></div>
+        <div class="section-head"><div><div class="eyebrow dark"><span class="dot"></span> Podcast · Season 1 lineup</div><h2>Podcast topics that educate, inspire, and drive action.</h2></div><p>Every episode ends with one nugget you can use the same day. Here's what's on the mic for Season 1.</p></div>
         <div class="episodes">
-          <div class="episode"><span class="tag">Episode 01</span><h3>How Local Businesses Can Build Trust Online</h3><p>A practical conversation on reviews, content consistency, and digital credibility.</p></div>
-          <div class="episode"><span class="tag">Episode 02</span><h3>Turning Expertise into Social Media Content</h3><p>How founders can convert everyday knowledge into useful posts and videos.</p></div>
-          <div class="episode"><span class="tag">Episode 03</span><h3>The Strategy Behind a Premium Brand Presence</h3><p>Why clear messaging, strong visuals, and consistent engagement matter.</p></div>
+          <article class="episode"><span class="tag">Episode 01 · Life</span><h3>The 1% Rule: Why Tiny Habits Beat Big Resolutions</h3><p>1.01 to the power of 365 is about 38. We unpack the math of compounding and why showing up daily beats starting over every January.</p><p class="try"><b>Nugget to try:</b> pick one habit and make it 1% easier tomorrow.</p></article>
+          <article class="episode"><span class="tag">Episode 02 · Money</span><h3>Rich vs. a Rich Life: Define Wealth Before You Chase It</h3><p>A big balance and a restless night, or a modest balance and peace of mind? A frank talk on money goals that serve the life you actually want.</p><p class="try"><b>Nugget to try:</b> finish the sentence "For me, rich means…"</p></article>
+          <article class="episode"><span class="tag">Episode 03 · Business</span><h3>Your Expertise Is Your Content Calendar</h3><p>Founders already know enough to post every day. How to turn the questions customers ask into a year of useful posts, Reels and captions.</p><p class="try"><b>Nugget to try:</b> write down the last 5 questions a customer asked you.</p></article>
+          <article class="episode"><span class="tag">Episode 04 · Wisdom</span><h3>Boond Boond Se Saagar: Desi Proverbs for Modern Business</h3><p>"Drop by drop, an ocean." Old Indian sayings that still run small businesses, from saving and patience to the power of reputation.</p><p class="try"><b>Nugget to try:</b> share a proverb your grandparents lived by.</p></article>
+          <article class="episode"><span class="tag">Episode 05 · Health</span><h3>Three Minutes, Three Ms: Mindful, Movement, Mindset</h3><p>No gym, no app, no excuses. A three-minute daily reset for busy people, and why consistency matters more than intensity.</p><p class="try"><b>Nugget to try:</b> breathe for one minute, stretch for one, plan for one.</p></article>
+          <article class="episode"><span class="tag">Episode 06 · Marketing</span><h3>Trust Is the New Marketing: Reviews, Replies and Real Credibility</h3><p>Why a thoughtful reply to a 3-star review can win more customers than an ad, and how local businesses build trust online one interaction at a time.</p><p class="try"><b>Nugget to try:</b> reply to your three most recent reviews today.</p></article>
         </div>
       </div>
     </section>
 
     <section class="testimonials" id="testimonials">
       <div class="container">
-        <div class="section-head"><div><div class="eyebrow"><span class="dot"></span> Testimonials</div><h2>What clients can expect from Panoramic Nuggets.</h2></div></div>
+        <div class="section-head"><div><div class="eyebrow"><span class="dot"></span> Our Promise</div><h2>What clients can expect from Panoramic Nuggets.</h2></div></div>
         <div class="testimonial-grid">
-          <div class="quote"><p>“Panoramic Nuggets helped us organize our ideas and turn them into consistent, professional content.”</p><b>Local Business Owner</b></div>
-          <div class="quote"><p>“The monthly plan made social media easier to manage and gave us a clearer brand voice.”</p><b>Healthcare Practice Manager</b></div>
-          <div class="quote"><p>“The podcast and content strategy helped position our expertise in a much stronger way.”</p><b>Professional Services Founder</b></div>
+          <div class="quote"><p>Your ideas, organized into a consistent content calendar, so you always know what's posting and why.</p><b>Clarity</b></div>
+          <div class="quote"><p>A monthly plan that makes social media easier to manage and gives your brand one clear, recognizable voice.</p><b>Consistency</b></div>
+          <div class="quote"><p>Podcast and content strategy that positions your expertise, with a simple report each month on what worked.</p><b>Authority</b></div>
         </div>
       </div>
     </section>
@@ -650,7 +720,8 @@
             <h3>Contact Panoramic Nuggets</h3>
             <p>Email us directly or use the lead form to send your project details.</p>
             <p><strong>Email:</strong><br><a href="mailto:contact@panoramicnuggets.com">contact@panoramicnuggets.com</a></p>
-            <div class="calendly-box"><h3>Calendly Booking</h3><p>Add your Calendly link here so visitors can schedule a free strategy call.</p><a class="btn btn-dark" href="https://calendly.com/contact-panoramicnuggets/strategy-call" target="_blank" rel="noopener">Book a Free Strategy Call</a></div>
+            <p class="wa-line"><strong>WhatsApp:</strong><br><a href="https://wa.me/19144541328?text=Hi%20Panoramic%20Nuggets%2C%20I%27m%20interested%20in%20training." target="_blank" rel="noopener">Message us on WhatsApp</a></p>
+            <div class="calendly-box"><h3>Book a free strategy call</h3><p>Pick a 30-minute slot that suits you. We'll talk through your goals and leave you with at least one idea you can use right away.</p><a class="btn btn-dark" href="https://calendly.com/contact-panoramicnuggets/strategy-call" target="_blank" rel="noopener">Book a Free Strategy Call</a></div>
           </div>
           <form class="lead-form" name="project-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
           <input type="hidden" name="form-name" value="project-inquiry">
@@ -662,7 +733,7 @@
             <div class="form-row"><input type="text" name="company" placeholder="Company Name"><select name="service_interest"><option>Social Media Handling</option><option>Podcast Strategy</option><option>Reel / Video Editing</option><option>Website Content Support</option><option>Full Marketing Strategy</option></select></div>
             <textarea name="message" placeholder="Tell us about your business and what support you need"></textarea>
             <button class="btn btn-primary" type="submit">Send Inquiry</button>
-            <div class="form-note">This form is powered by Netlify Forms. Submissions will appear in your Netlify dashboard, where you can enable email notifications to contact@panoramicnuggets.com.</div>
+            <div class="form-note">We reply by email. Your details are used only to respond to your inquiry; see our <a href="/privacy.html">Privacy Policy</a>.</div>
           </form>
         </div>
       </div>
@@ -671,10 +742,15 @@
 
   <footer>
     <div class="container foot">
-      <div><img class="footer-logo" src="./panoramic-nuggets-logo.png" alt="Panoramic Nuggets Logo">© 2026 Panoramic Nuggets. Transforming Knowledge into Action.
-        <div class="legal-links"><a href="./privacy.html">Privacy Policy</a><a href="./terms.html">Terms of Service</a><a href="./data-deletion.html">Data Deletion</a></div>
+      <div><img class="footer-logo" src="/logo-mark.png" alt="Panoramic Nuggets logo" width="64" height="64" style="width:64px">© 2026 Panoramic Nuggets. Transforming Knowledge into Action.
+        <div class="legal-links"><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a><a href="/data-deletion.html">Data Deletion</a></div>
       </div>
-      <div class="social"><a href="#">f</a><a href="#">in</a><a href="#">▶</a><a href="#">ig</a></div>
+      <div class="social">
+        <a href="https://www.youtube.com/@panoramicnuggets" target="_blank" rel="noopener" aria-label="Panoramic Nuggets on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+        <a href="https://www.instagram.com/panoramicnuggets/" target="_blank" rel="noopener" aria-label="Panoramic Nuggets on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.6 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2z"/></svg></a>
+        <a href="https://www.facebook.com/1381584035044746" target="_blank" rel="noopener" aria-label="Panoramic Nuggets on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg></a>
+        <a href="https://wa.me/19144541328?text=Hi%20Panoramic%20Nuggets%2C%20I%27m%20interested%20in%20training." target="_blank" rel="noopener" aria-label="Message Panoramic Nuggets on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.2c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1.1 2.5c0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg></a>
+      </div>
     </div>
   </footer>
 </body>
