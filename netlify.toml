@@ -21,3 +21,14 @@
   [headers.values]
     Content-Type = "application/rss+xml; charset=utf-8"
     Cache-Control = "public, max-age=900"
+
+# Same feed at .rss (some directories expect that extension).
+[[redirects]]
+  from = "/podcast.rss"
+  to = "/podcast.xml"
+  status = 200
+
+[[headers]]
+  for = "/podcast.rss"
+  [headers.values]
+    Content-Type = "application/rss+xml; charset=utf-8"
